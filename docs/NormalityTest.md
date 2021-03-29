@@ -73,7 +73,7 @@ ggdensity(my.data$len,
 ## Warning: geom_vline(): Ignoring `data` because `xintercept` was provided.
 ```
 
-![](NormalityTest_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+<img src="NormalityTest_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 + ggqqplot
 
@@ -83,7 +83,7 @@ library(ggpubr)
 ggqqplot(my.data$len, color = "red")
 ```
 
-![](NormalityTest_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+<img src="NormalityTest_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 + qqPlot
@@ -100,7 +100,7 @@ library(car)
 qqPlot(my.data$len)
 ```
 
-![](NormalityTest_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+<img src="NormalityTest_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ```
 ## [1] 23  1
@@ -115,7 +115,7 @@ qqnorm(my.data$len)
 qqline(my.data$len, col =2)
 ```
 
-![](NormalityTest_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="NormalityTest_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 

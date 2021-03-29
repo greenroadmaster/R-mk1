@@ -70,7 +70,7 @@ boxplot(len ~ supp * dose,
         ylab="Tooth Length")
 ```
 
-![](ANOVA-TwoWay_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+<img src="ANOVA-TwoWay_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 boxplot으로 나타내면 위와 같이 구성되어 있다.
 
@@ -153,7 +153,7 @@ interaction.plot
 ##     }
 ##     invisible()
 ## }
-## <bytecode: 0x0000000015b71be0>
+## <bytecode: 0x00000000154e46b0>
 ## <environment: namespace:stats>
 ```
 각 변수의 변화를 추적하는 함수이다.
@@ -177,7 +177,7 @@ pch=c(1,19),
 col = c("#00AFBB", "#E7B800"))
 ```
 
-![](ANOVA-TwoWay_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="ANOVA-TwoWay_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 + x.factor : 기준이 되는 factor
 + trace.factor: 추가 펙터
@@ -361,9 +361,9 @@ summary(glht(tooth.aov, linfct = mcp(dose="Tukey")))
 ## 
 ## Linear Hypotheses:
 ##                Estimate Std. Error t value Pr(>|t|)    
-## D1 - D0.5 == 0    9.130      1.210   7.543  < 1e-06 ***
-## D2 - D0.5 == 0   15.495      1.210  12.802  < 1e-06 ***
-## D2 - D1 == 0      6.365      1.210   5.259 5.76e-06 ***
+## D1 - D0.5 == 0    9.130      1.210   7.543   <1e-05 ***
+## D2 - D0.5 == 0   15.495      1.210  12.802   <1e-05 ***
+## D2 - D1 == 0      6.365      1.210   5.259   <1e-05 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## (Adjusted p values reported -- single-step method)

@@ -67,7 +67,7 @@ ggboxplot(my.data,
           xlab = "Groups")
 ```
 
-![](T-testPaired_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+<img src="T-testPaired_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 
 
@@ -122,7 +122,7 @@ pd <- paired(before, after)
 plot(pd, type = "profile") + theme_bw()
 ```
 
-![](T-testPaired_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="T-testPaired_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 plot 함수로 봐도 충분히 차이가 있다는 것을 확인할 수 있다.
 

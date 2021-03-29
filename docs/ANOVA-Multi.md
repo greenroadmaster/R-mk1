@@ -57,7 +57,7 @@ boxplot(Sepal.Length ~ Species,
         ylab="Sepal.Length")
 ```
 
-![](ANOVA-Multi_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+<img src="ANOVA-Multi_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 ```r
 boxplot(Petal.Length ~ Species, 
@@ -67,7 +67,7 @@ boxplot(Petal.Length ~ Species,
         ylab="Petal.Length")
 ```
 
-![](ANOVA-Multi_files/figure-epub3/unnamed-chunk-2-2.png)<!-- -->
+<img src="ANOVA-Multi_files/figure-html/unnamed-chunk-2-2.png" width="672" />
 
 boxplot으로 나타내면 위와 같이 구성되어 있다.
 

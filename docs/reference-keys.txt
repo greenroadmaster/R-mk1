@@ -87,3 +87,4 @@ manova-test
 plot
 scatterplot
 다항회귀모형
+wilcox.test윌콕슨-검정-2

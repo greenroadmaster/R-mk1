@@ -112,7 +112,7 @@ plot(x = women$height, y = women$weight,
 abline(fit1)
 ```
 
-![](RegressionModel_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="RegressionModel_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 실제 데이터 그래프에 회귀방정식을 그려보면,
 
@@ -197,7 +197,7 @@ scatterplot(
 ## Warning in title(...): "smoother.args" is not a graphical parameter
 ```
 
-![](RegressionModel_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+<img src="RegressionModel_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 ```r
 #lty는 ling type
@@ -256,7 +256,7 @@ with(data = women, expr = {
 })
 ```
 
-![](RegressionModel_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="RegressionModel_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 그래프로 보았을때, 확실히 fit1보다 더 많은 데이터에 적합하다.
 

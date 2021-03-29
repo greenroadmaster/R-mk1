@@ -52,7 +52,7 @@ boxplot(weight ~ group,
         ylab="Tooth Length")
 ```
 
-![](ANOVA-OneWay_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+<img src="ANOVA-OneWay_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 boxplot으로 나타내면 위와 같이 구성되어 있다.
 
@@ -313,7 +313,7 @@ summary(glht(plant.aov, linfct = mcp(group="Tukey")))
 ##                  Estimate Std. Error t value Pr(>|t|)  
 ## trt1 - ctrl == 0  -0.3710     0.2788  -1.331   0.3909  
 ## trt2 - ctrl == 0   0.4940     0.2788   1.772   0.1980  
-## trt2 - trt1 == 0   0.8650     0.2788   3.103   0.0118 *
+## trt2 - trt1 == 0   0.8650     0.2788   3.103   0.0122 *
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## (Adjusted p values reported -- single-step method)
@@ -374,7 +374,7 @@ pairwise.t.test
 ##     class(ans) <- "pairwise.htest"
 ##     ans
 ## }
-## <bytecode: 0x00000000238f42d0>
+## <bytecode: 0x0000000021602948>
 ## <environment: namespace:stats>
 ```
 
