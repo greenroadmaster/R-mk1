@@ -1,0 +1,22 @@
+book_filename: "easy-R"
+output_dir: docs
+delete_merged_file: true
+edit: https://github.com/greenroadmaster/R-mk1/edit/master/%s
+view: https://github.com/greenroadmaster/R-mk1/blob/master/%s
+language: 
+  ui:
+    chapter_name: 'Chapter '
+new_session: yes # Each chapter is knitted as its own Rmd file
+#rmd_subdir: ["", "",""]
+rmd_files: [
+  "NormalityTest.Rmd",
+  "HV-Test.Rmd",
+  "IndependenceTest.Rmd",
+  "T-testOne.Rmd",
+  "T-testPaired.Rmd",
+  "T-testUnpairedTwo.Rmd",
+  "ANOVA-OneWay.Rmd",
+  "ANOVA-TwoWay.Rmd",
+  "ANOVA-Multi.Rmd",
+  "RegressionModel.Rmd",
+  ]

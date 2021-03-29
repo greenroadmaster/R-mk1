@@ -1,0 +1,136 @@
+# Unpaired Two samples T-test
+
+## 데이터 만들기
+남자 9명, 여자 9명에 대한 몸무게를 담은 데이터셋을 만든다.
+
+``` {R}
+women_weight <- c(38.9, 61.2, 73.3, 21.8, 63.4, 64.6, 48.4, 48.8, 48.5)
+men_weight <- c(67.8, 60, 63.4, 76, 89.4, 73.3, 67.3, 61.3, 62.4)
+    
+(my.data <- data.frame(group = rep(c("Woman", "Man"), each = 9), weight = c(women_weight,  men_weight) ) )
+```
+
+
+## Unpaired Two samples T-test
+
+두 모집단에 대한 평균의 차이가 있는지 검정하는 방법이다.
+
+예시)
+
+귀무가설: 강남구에 사는 사람들의 평균 소득과 서초구 사람들의 평균 소득에 차이가 없다.
+
+대립가설: 강남구에 사는 사람들의 평균 소득과 서초구 사람들의 평균 소득에 차이가 있다.
+
+
+### 모수적 방법
+모수적인 방법을 사용하기 위해서는 두 가지 전제 조건이 필요하다.
+
+즉, 모집단이 정규성과 등분산성을 따르는지 확인해야 한다.
+정규성 검정
+
+### 여성 몸무게 정규성
+
+``` {R}
+shapiro.test(my.data$weight[my.data$group=="Woman"])
+``` 
+
+### 남성 몸무게 정규성
+
+``` {R}
+shapiro.test(my.data$weight[my.data$group=="Man"])
+```
+
+둘 다 p-value값이 유의수준(0.05)보다 크기 때문에 귀무가설 채택.
+
+따라서 정규성을 따른다.
+
+
+
+### 등분산성 검정
+
+``` {R}
+var.test(weight~group, data = my.data)
+```
+
+
+p-value값이 유의수준(0.05)보다 크기 때문에 귀무가설 채택.
+
+따라서 등분산성을 따른다.
+
+
+두 전제조건 모두 만족한다.
+
+
+
+## t.test
+``` {R}
+( res <- t.test(weight ~ group, data = my.data, var.equal = TRUE) )
+```
+
+p-value값이 유의수준(0.05)보다 작기 때문에 귀무가설 기각. 대립가설 채택.
+
+따라서, 남자 여자 몸무게의 차이가 있다.
+
+
+추가 옵션
+
+table(my.data$group)
+
+t.test(weight ~ group, data = my.data, var.equal = TRUE, alternative = "less")
+
+t.test(weight ~ group, data = my.data, var.equal = TRUE, alternative = "greater")
+
+alternative를 사용하여 대립가설을 조정할 수 있다.
+
+여기서는 table함수를 통해 어떤 그룹이 먼저 들어갔는지 확인한다. 남자가 먼저다. 가설에서 순서가 정해지기 때문이다.
+
+less인 경우, 남자 평균 몸무게가 여자의 평균 몸무게보다 작다.(대립가설) 귀무가설 채택이기 때문에 대립가설이 거짓이다.
+
+greater인 경우, 남자 평균 몸무게가 여자의 평균 몸무게보다 크다.(대립가설) 대립가설 채택이기 때문에 대립가설이 참이다.
+
+
+## 평균 추정 값과 신뢰구간
+
+``` {R}
+res$estimate
+```
+
+``` {R}
+res$conf.int
+```
+
+남자의 평균 몸무게는 68.98889kg, 여자 평균 몸무게는 52.1kg이다.
+
+남자 여자 평균 몸무게 차이 값이 4.029759~29.748019 사이가 신뢰구간 0.95이내 이다.
+
+
+
+## 비모수적 방법
+소표본이고 정규성을 따르지 않을 때 사용하는 방법이다.
+
+my.data는 전제조건을 통과하여 모수적 방법을 사용해야 하지만 연습으로 그냥 한다.
+
+### wilcox.test(윌콕슨 검정)
+
+``` {R}
+wilcox.test(weight ~ group, data = my.data, exact = FALSE)
+```
+
+p-value값이 유의수준(0.05)보다 작기 때문에 귀무가설 기각. 대립가설 채택.
+
+따라서, 남자 여자 몸무게의 차이가 있다.
+
+## 추가 옵션
+
+``` {R}
+table(my.data$group)
+
+wilcox.test(weight ~ group, data = my.data, exact = FALSE, alternative = "less")
+
+wilcox.test(weight ~ group, data = my.data, exact = FALSE, alternative = "greater")
+``` 
+
+
+모수적 방법과 똑같이 해석하면 된다.
+
+
