@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 회귀모형(Regression Model) | R-Book.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 회귀모형(Regression Model) | R-Book.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 회귀모형(Regression Model) | R-Book.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="manova-test.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">easy-R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="-normality-test.html"><a href="-normality-test.html"><i class="fa fa-check"></i><b>1</b> 정규성 검정(Normality Test)</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="-normality-test.html"><a href="-normality-test.html#데이터-불러오기"><i class="fa fa-check"></i><b>1.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="1.2" data-path="-normality-test.html"><a href="-normality-test.html#정규성-검정이란"><i class="fa fa-check"></i><b>1.2</b> 정규성 검정이란</a></li>
+<li class="chapter" data-level="1.3" data-path="-normality-test.html"><a href="-normality-test.html#중요한-두-법칙"><i class="fa fa-check"></i><b>1.3</b> 중요한 두 법칙</a></li>
+<li class="chapter" data-level="1.4" data-path="-normality-test.html"><a href="-normality-test.html#shapiro-wilk-검정"><i class="fa fa-check"></i><b>1.4</b> Shapiro-Wilk 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html"><i class="fa fa-check"></i><b>2</b> 등분산성 검정(Homogeneity of Variance Test)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#데이터-불러오기-1"><i class="fa fa-check"></i><b>2.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="2.2" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#등분산성-검정이란"><i class="fa fa-check"></i><b>2.2</b> 등분산성 검정이란</a></li>
+<li class="chapter" data-level="2.3" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#두-집단일때"><i class="fa fa-check"></i><b>2.3</b> 두 집단일때</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#f-test"><i class="fa fa-check"></i><b>2.3.1</b> F test</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#다집단-일때"><i class="fa fa-check"></i><b>2.4</b> 다집단 일때</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#bartletts-test"><i class="fa fa-check"></i><b>2.4.1</b> Bartlett’s test</a></li>
+<li class="chapter" data-level="2.4.2" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#levenes-test"><i class="fa fa-check"></i><b>2.4.2</b> Levene’s test</a></li>
+<li class="chapter" data-level="2.4.3" data-path="-homogeneity-of-variance-test.html"><a href="-homogeneity-of-variance-test.html#fligner-killeen-test"><i class="fa fa-check"></i><b>2.4.3</b> Fligner-Killeen test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="-test-of-independence.html"><a href="-test-of-independence.html"><i class="fa fa-check"></i><b>3</b> 독립성 검정(Test of Independence)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="-test-of-independence.html"><a href="-test-of-independence.html#데이터-불러오기-2"><i class="fa fa-check"></i><b>3.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="3.2" data-path="-test-of-independence.html"><a href="-test-of-independence.html#교차표cross-tabulation-생성"><i class="fa fa-check"></i><b>3.2</b> 교차표(cross tabulation) 생성</a></li>
+<li class="chapter" data-level="3.3" data-path="-test-of-independence.html"><a href="-test-of-independence.html#독립성-검정이란"><i class="fa fa-check"></i><b>3.3</b> 독립성 검정이란</a></li>
+<li class="chapter" data-level="3.4" data-path="-test-of-independence.html"><a href="-test-of-independence.html#범주형-변수간에-검정"><i class="fa fa-check"></i><b>3.4</b> 범주형 변수간에 검정</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="-test-of-independence.html"><a href="-test-of-independence.html#카이제곱-검정이란"><i class="fa fa-check"></i><b>3.4.1</b> 카이제곱 검정이란</a></li>
+<li class="chapter" data-level="3.4.2" data-path="-test-of-independence.html"><a href="-test-of-independence.html#fishers-exact-test피셔의-검정"><i class="fa fa-check"></i><b>3.4.2</b> Fisher’s Exact Test(피셔의 검정)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="-test-of-independence.html"><a href="-test-of-independence.html#연속형-변수간에-검정"><i class="fa fa-check"></i><b>3.5</b> 연속형 변수간에 검정</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="-test-of-independence.html"><a href="-test-of-independence.html#공분산covariance"><i class="fa fa-check"></i><b>3.5.1</b> 공분산(covariance)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html"><i class="fa fa-check"></i><b>4</b> One Sample T-test</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html#데이터-만들기"><i class="fa fa-check"></i><b>4.1</b> 데이터 만들기</a></li>
+<li class="chapter" data-level="4.2" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html#one-sample-t-test란"><i class="fa fa-check"></i><b>4.2</b> One sample T-test란</a></li>
+<li class="chapter" data-level="4.3" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html#모수적-방법"><i class="fa fa-check"></i><b>4.3</b> 모수적 방법</a></li>
+<li class="chapter" data-level="4.4" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html#정규성-검정"><i class="fa fa-check"></i><b>4.4</b> 정규성 검정</a></li>
+<li class="chapter" data-level="4.5" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html#t.test"><i class="fa fa-check"></i><b>4.5</b> t.test</a></li>
+<li class="chapter" data-level="4.6" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html#비모수적-방법"><i class="fa fa-check"></i><b>4.6</b> 비모수적 방법</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="one-sample-t-test.html"><a href="one-sample-t-test.html#wilcox.test윌콕슨-검정"><i class="fa fa-check"></i><b>4.6.1</b> wilcox.test(윌콕슨 검정)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html"><i class="fa fa-check"></i><b>5</b> Paired samples T-test</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#데이터-만들기-1"><i class="fa fa-check"></i><b>5.1</b> 데이터 만들기</a></li>
+<li class="chapter" data-level="5.2" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#paired-samples-t-test란"><i class="fa fa-check"></i><b>5.2</b> Paired samples T-test란</a></li>
+<li class="chapter" data-level="5.3" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#시각화로-확인하기"><i class="fa fa-check"></i><b>5.3</b> 시각화로 확인하기</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#플롯-비교-함수"><i class="fa fa-check"></i><b>5.3.1</b> 플롯 비교 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#모수적-방법-1"><i class="fa fa-check"></i><b>5.4</b> 모수적 방법</a></li>
+<li class="chapter" data-level="5.5" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#등분산성-검정"><i class="fa fa-check"></i><b>5.5</b> 등분산성 검정</a></li>
+<li class="chapter" data-level="5.6" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#t.test-1"><i class="fa fa-check"></i><b>5.6</b> t.test</a></li>
+<li class="chapter" data-level="5.7" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#평균-추정-값과-신뢰구간"><i class="fa fa-check"></i><b>5.7</b> 평균 추정 값과 신뢰구간</a></li>
+<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a></li>
+<li class="chapter" data-level="5.9" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#추가-옵션"><i class="fa fa-check"></i><b>5.9</b> 추가 옵션</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html"><i class="fa fa-check"></i><b>6</b> Unpaired Two samples T-test</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#데이터-만들기-2"><i class="fa fa-check"></i><b>6.1</b> 데이터 만들기</a></li>
+<li class="chapter" data-level="6.2" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#unpaired-two-samples-t-test-1"><i class="fa fa-check"></i><b>6.2</b> Unpaired Two samples T-test</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#모수적-방법-2"><i class="fa fa-check"></i><b>6.2.1</b> 모수적 방법</a></li>
+<li class="chapter" data-level="6.2.2" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#여성-몸무게-정규성"><i class="fa fa-check"></i><b>6.2.2</b> 여성 몸무게 정규성</a></li>
+<li class="chapter" data-level="6.2.3" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#남성-몸무게-정규성"><i class="fa fa-check"></i><b>6.2.3</b> 남성 몸무게 정규성</a></li>
+<li class="chapter" data-level="6.2.4" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#등분산성-검정-1"><i class="fa fa-check"></i><b>6.2.4</b> 등분산성 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#t.test-2"><i class="fa fa-check"></i><b>6.3</b> t.test</a></li>
+<li class="chapter" data-level="6.4" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#평균-추정-값과-신뢰구간-1"><i class="fa fa-check"></i><b>6.4</b> 평균 추정 값과 신뢰구간</a></li>
+<li class="chapter" data-level="6.5" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#비모수적-방법-2"><i class="fa fa-check"></i><b>6.5</b> 비모수적 방법</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#추가-옵션-1"><i class="fa fa-check"></i><b>6.6</b> 추가 옵션</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="-one-way-anova.html"><a href="-one-way-anova.html"><i class="fa fa-check"></i><b>7</b> 일원분류 분산분석(One way ANOVA)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="-one-way-anova.html"><a href="-one-way-anova.html#데이터-불러오기-3"><i class="fa fa-check"></i><b>7.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="7.2" data-path="-one-way-anova.html"><a href="-one-way-anova.html#일원분류-분산분석이란"><i class="fa fa-check"></i><b>7.2</b> 일원분류 분산분석이란</a></li>
+<li class="chapter" data-level="7.3" data-path="-one-way-anova.html"><a href="-one-way-anova.html#전제조건"><i class="fa fa-check"></i><b>7.3</b> 전제조건</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="-one-way-anova.html"><a href="-one-way-anova.html#정규성"><i class="fa fa-check"></i><b>7.3.1</b> 정규성</a></li>
+<li class="chapter" data-level="7.3.2" data-path="-one-way-anova.html"><a href="-one-way-anova.html#등분산성"><i class="fa fa-check"></i><b>7.3.2</b> 등분산성</a></li>
+<li class="chapter" data-level="7.3.3" data-path="-one-way-anova.html"><a href="-one-way-anova.html#독립성"><i class="fa fa-check"></i><b>7.3.3</b> 독립성</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="-one-way-anova.html"><a href="-one-way-anova.html#one-way-anova-test"><i class="fa fa-check"></i><b>7.4</b> One-way ANOVA test</a></li>
+<li class="chapter" data-level="7.5" data-path="-one-way-anova.html"><a href="-one-way-anova.html#다중비교"><i class="fa fa-check"></i><b>7.5</b> 다중비교</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="-one-way-anova.html"><a href="-one-way-anova.html#tukeyhsd"><i class="fa fa-check"></i><b>7.5.1</b> TukeyHSD</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="-one-way-anova.html"><a href="-one-way-anova.html#비모수일때"><i class="fa fa-check"></i><b>7.6</b> 비모수일때</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="-two-way-anova.html"><a href="-two-way-anova.html"><i class="fa fa-check"></i><b>8</b> 이원분류 분산분석(Two way ANOVA)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="-two-way-anova.html"><a href="-two-way-anova.html#데이터-불러오기-4"><i class="fa fa-check"></i><b>8.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="8.2" data-path="-two-way-anova.html"><a href="-two-way-anova.html#이원분류-분산분석이란"><i class="fa fa-check"></i><b>8.2</b> 이원분류 분산분석이란</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="-two-way-anova.html"><a href="-two-way-anova.html#이원분류-분산분석이란-1"><i class="fa fa-check"></i><b>8.2.1</b> 이원분류 분산분석이란,</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="-two-way-anova.html"><a href="-two-way-anova.html#전제조건-1"><i class="fa fa-check"></i><b>8.3</b> 전제조건</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="-two-way-anova.html"><a href="-two-way-anova.html#정규성-1"><i class="fa fa-check"></i><b>8.3.1</b> 정규성</a></li>
+<li class="chapter" data-level="8.3.2" data-path="-two-way-anova.html"><a href="-two-way-anova.html#등분산성-1"><i class="fa fa-check"></i><b>8.3.2</b> 등분산성</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="-two-way-anova.html"><a href="-two-way-anova.html#two-way-anova-test"><i class="fa fa-check"></i><b>8.4</b> Two-way ANOVA test</a></li>
+<li class="chapter" data-level="8.5" data-path="-two-way-anova.html"><a href="-two-way-anova.html#다중비교-1"><i class="fa fa-check"></i><b>8.5</b> 다중비교</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="-two-way-anova.html"><a href="-two-way-anova.html#tukeyhsd-1"><i class="fa fa-check"></i><b>8.5.1</b> TukeyHSD</a></li>
+<li class="chapter" data-level="8.5.2" data-path="-two-way-anova.html"><a href="-two-way-anova.html#glht"><i class="fa fa-check"></i><b>8.5.2</b> glht</a></li>
+<li class="chapter" data-level="8.5.3" data-path="-two-way-anova.html"><a href="-two-way-anova.html#pairwise.t.test"><i class="fa fa-check"></i><b>8.5.3</b> pairwise.t.test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html"><i class="fa fa-check"></i><b>9</b> 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance)</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#데이터-불러오기-5"><i class="fa fa-check"></i><b>9.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="9.2" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#다변량-분산분석이란"><i class="fa fa-check"></i><b>9.2</b> 다변량 분산분석이란</a></li>
+<li class="chapter" data-level="9.3" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#manova"><i class="fa fa-check"></i><b>9.3</b> MANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="manova-test.html"><a href="manova-test.html"><i class="fa fa-check"></i><b>10</b> MANOVA test</a></li>
+<li class="chapter" data-level="11" data-path="-regression-model.html"><a href="-regression-model.html"><i class="fa fa-check"></i><b>11</b> 회귀모형(Regression Model)</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="-regression-model.html"><a href="-regression-model.html#데이터-불러오기-6"><i class="fa fa-check"></i><b>11.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="11.2" data-path="-regression-model.html"><a href="-regression-model.html#상관-분석"><i class="fa fa-check"></i><b>11.2</b> 상관 분석</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="-regression-model.html"><a href="-regression-model.html#회귀모형"><i class="fa fa-check"></i><b>11.2.1</b> 회귀모형</a></li>
+<li class="chapter" data-level="11.2.2" data-path="-regression-model.html"><a href="-regression-model.html#plot"><i class="fa fa-check"></i><b>11.2.2</b> plot</a></li>
+<li class="chapter" data-level="11.2.3" data-path="-regression-model.html"><a href="-regression-model.html#scatterplot"><i class="fa fa-check"></i><b>11.2.3</b> scatterplot</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="-regression-model.html"><a href="-regression-model.html#다항회귀모형"><i class="fa fa-check"></i><b>11.3</b> 다항회귀모형</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/greenroadmaster/easy-R/docs" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="회귀모형regression-model" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> 회귀모형(Regression Model)</h1>
+<div id="데이터-불러오기-6" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> 데이터 불러오기</h2>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="-regression-model.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(women)</span>
+<span id="cb210-2"><a href="-regression-model.html#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(women)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    15 obs. of  2 variables:
+##  $ height: num  58 59 60 61 62 63 64 65 66 67 ...
+##  $ weight: num  115 117 120 123 126 129 132 135 139 142 ...</code></pre>
+<p>women(여성 데이터셋)
+-height: 키(단위:in)
+-weight: 몸무게(단위:lb)</p>
+<p>R에 있는 기본 데이터셋인 women을 불러온다.</p>
+<p>2개의 변수와 15개의 관측치가 있다.</p>
+</div>
+<div id="상관-분석" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> 상관 분석</h2>
+<p>여성의 키와 몸무게의 인과관계를 위한 회귀분석하기 전에,</p>
+<p>두 변수의 상관성을 알아본다.</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="-regression-model.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(women<span class="sc">$</span>height,women<span class="sc">$</span>weight)</span></code></pre></div>
+<pre><code>## [1] 0.9954948</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="-regression-model.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(women<span class="sc">$</span>height,women<span class="sc">$</span>weight)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  women$height and women$weight
+## t = 37.855, df = 13, p-value = 1.091e-14
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9860970 0.9985447
+## sample estimates:
+##       cor 
+## 0.9954948</code></pre>
+<p>상관계수가 1에 가까울수록 두 변수의 상관력이 높다는 의미다.</p>
+<p>0.99로 아주 높다.</p>
+<p>##회귀모형 찾기</p>
+<div id="회귀모형" class="section level3" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> 회귀모형</h3>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="-regression-model.html#cb216-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight<span class="sc">~</span>height, <span class="at">data =</span> women)</span>
+<span id="cb216-2"><a href="-regression-model.html#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight ~ height, data = women)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.7333 -1.1333 -0.3833  0.7417  3.1167 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -87.51667    5.93694  -14.74 1.71e-09 ***
+## height        3.45000    0.09114   37.85 1.09e-14 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.525 on 13 degrees of freedom
+## Multiple R-squared:  0.991,  Adjusted R-squared:  0.9903 
+## F-statistic:  1433 on 1 and 13 DF,  p-value: 1.091e-14</code></pre>
+<ul>
+<li>Call: 사용한 식</li>
+<li>Residusals(잔차): 실제값과 오차</li>
+<li>귀무가설: 회귀계수가 0이다.</li>
+<li>R-squared(결정 계수): 설명력 : 99.1% 만큼 실제값의 산포도와 일치한다.(실제 분산의 얼마만큼 잘 설명하는가)</li>
+<li>결정 계수는 주어진 종속변수(표본)과 추정한 종속변수 간의 상관계수의 제곱이다.</li>
+<li>F-statistic: 귀무가설: 두 변수는 선형관계가 없다.</li>
+</ul>
+<p>선형 회귀 모형의 결과, 절편과 height 통계적으로 둘 다 고도로 유의한 결과가 나왔다.</p>
+<p>그리고 R-squared 값이 0.991로 아주 높은 값이 나와 적합한 모형이라 볼 수 있다.</p>
+<p>모형의 결과는,</p>
+<p>weight = -87.51667 + 3.45 x height</p>
+</div>
+<div id="plot" class="section level3" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> plot</h3>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="-regression-model.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> women<span class="sc">$</span>height, <span class="at">y =</span> women<span class="sc">$</span>weight, </span>
+<span id="cb218-2"><a href="-regression-model.html#cb218-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;Height (inches)&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;Weight (lbs)&#39;</span>)</span>
+<span id="cb218-3"><a href="-regression-model.html#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(fit1)</span></code></pre></div>
+<p><img src="RegressionModel_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>실제 데이터 그래프에 회귀방정식을 그려보면,</p>
+<p>거의 일치한 모습을 볼 수 있다.</p>
+<p>좀 더 자세한 그래프를 그려보자.</p>
+</div>
+<div id="scatterplot" class="section level3" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> scatterplot</h3>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="-regression-model.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<pre><code>## Loading required package: carData</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="-regression-model.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot</span>(</span>
+<span id="cb221-2"><a href="-regression-model.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  weight <span class="sc">~</span> height, </span>
+<span id="cb221-3"><a href="-regression-model.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> women, </span>
+<span id="cb221-4"><a href="-regression-model.html#cb221-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">spread =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb221-5"><a href="-regression-model.html#cb221-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">smoother.args =</span> <span class="fu">list</span>(<span class="at">lty=</span><span class="dv">2</span>), </span>
+<span id="cb221-6"><a href="-regression-model.html#cb221-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb221-7"><a href="-regression-model.html#cb221-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&#39;Women Age 30 ~ 39&#39;</span>,</span>
+<span id="cb221-8"><a href="-regression-model.html#cb221-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&#39;Height (inches)&#39;</span>,</span>
+<span id="cb221-9"><a href="-regression-model.html#cb221-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&#39;Weight (lbs)&#39;</span> </span>
+<span id="cb221-10"><a href="-regression-model.html#cb221-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning in plot.window(...): &quot;spread&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in plot.window(...): &quot;smoother.args&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in plot.xy(xy, type, ...): &quot;spread&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in plot.xy(xy, type, ...): &quot;smoother.args&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;spread&quot; is not a
+## graphical parameter</code></pre>
+<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;smoother.args&quot; is
+## not a graphical parameter</code></pre>
+<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;spread&quot; is not a
+## graphical parameter</code></pre>
+<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;smoother.args&quot; is
+## not a graphical parameter</code></pre>
+<pre><code>## Warning in box(...): &quot;spread&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in box(...): &quot;smoother.args&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in title(...): &quot;spread&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in title(...): &quot;smoother.args&quot; is not a graphical parameter</code></pre>
+<p><img src="RegressionModel_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="-regression-model.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lty는 ling type</span></span>
+<span id="cb234-2"><a href="-regression-model.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="co">#회귀분석후 그래프까지 나타내줌</span></span>
+<span id="cb234-3"><a href="-regression-model.html#cb234-3" aria-hidden="true" tabindex="-1"></a><span class="co">#회귀분석 결과를 선으로 나타난다.(평활선(loess)(smoother):모난부분을 부드럽게 해준다.)</span></span>
+<span id="cb234-4"><a href="-regression-model.html#cb234-4" aria-hidden="true" tabindex="-1"></a><span class="co">#직선보다 더 좋게 만들 수 있다.(회귀모형에 대한 힌트를 준다.)</span></span></code></pre></div>
+</div>
+</div>
+<div id="다항회귀모형" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> 다항회귀모형</h2>
+<p>독립변수의 차수가 2차 이상인 회귀모형이다.</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="-regression-model.html#cb235-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight<span class="sc">~</span>height<span class="sc">+</span><span class="fu">I</span>(height<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> women)</span>
+<span id="cb235-2"><a href="-regression-model.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight ~ height + I(height^2), data = women)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.50941 -0.29611 -0.00941  0.28615  0.59706 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 261.87818   25.19677  10.393 2.36e-07 ***
+## height       -7.34832    0.77769  -9.449 6.58e-07 ***
+## I(height^2)   0.08306    0.00598  13.891 9.32e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.3841 on 12 degrees of freedom
+## Multiple R-squared:  0.9995, Adjusted R-squared:  0.9994 
+## F-statistic: 1.139e+04 on 2 and 12 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>fit1과 마찬가지로 적합한 회귀모형이다.</p>
+<p>R-squared가 조금 더 높은 것으로 보아</p>
+<p>더 많은 데이터를 설명해줄 수 있는 모형이다.</p>
+<p>모형의 결과는,</p>
+<p><strong>weight = 261.87818 - 7.34832 x height + 0.08306 x height^2</strong></p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="-regression-model.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(<span class="at">data =</span> women, <span class="at">expr =</span> {</span>
+<span id="cb237-2"><a href="-regression-model.html#cb237-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">xlab =</span> <span class="st">&#39;Height (inches)&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;Weight (lbs)&#39;</span>)</span>
+<span id="cb237-3"><a href="-regression-model.html#cb237-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(<span class="at">x =</span> height, <span class="at">y =</span> <span class="fu">fitted</span>(fit2))</span>
+<span id="cb237-4"><a href="-regression-model.html#cb237-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p><img src="RegressionModel_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>그래프로 보았을때, 확실히 fit1보다 더 많은 데이터에 적합하다.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="manova-test.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/greenroadmaster/easy-R/edit/master/RegressionModel.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/greenroadmaster/easy-R/blob/master/RegressionModel.Rmd",
+"text": null
+},
+"download": ["R-Book.pdf", "R-Book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
