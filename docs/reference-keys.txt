@@ -88,3 +88,5 @@ plot
 scatterplot
 다항회귀모형
 wilcox.test윌콕슨-검정-2
+preface
+r-통계의-시작

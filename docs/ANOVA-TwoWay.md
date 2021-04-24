@@ -153,7 +153,7 @@ interaction.plot
 ##     }
 ##     invisible()
 ## }
-## <bytecode: 0x00000000154e46b0>
+## <bytecode: 0x00000000163df5f8>
 ## <environment: namespace:stats>
 ```
 각 변수의 변화를 추적하는 함수이다.

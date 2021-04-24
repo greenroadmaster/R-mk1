@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 일원분류 분산분석(One way ANOVA) | R-Book.utf8</title>
+  <title>Chapter 7 일원분류 분산분석(One way ANOVA) | easy-R.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 일원분류 분산분석(One way ANOVA) | R-Book.utf8" />
+  <meta property="og:title" content="Chapter 7 일원분류 분산분석(One way ANOVA) | easy-R.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 일원분류 분산분석(One way ANOVA) | R-Book.utf8" />
+  <meta name="twitter:title" content="Chapter 7 일원분류 분산분석(One way ANOVA) | easy-R.utf8" />
   
   
   
@@ -193,7 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#등분산성-검정"><i class="fa fa-check"></i><b>5.5</b> 등분산성 검정</a></li>
 <li class="chapter" data-level="5.6" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#t.test-1"><i class="fa fa-check"></i><b>5.6</b> t.test</a></li>
 <li class="chapter" data-level="5.7" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#평균-추정-값과-신뢰구간"><i class="fa fa-check"></i><b>5.7</b> 평균 추정 값과 신뢰구간</a></li>
-<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a></li>
+<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>5.8.1</b> wilcox.test(윌콕슨 검정)</a></li>
+</ul></li>
 <li class="chapter" data-level="5.9" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#추가-옵션"><i class="fa fa-check"></i><b>5.9</b> 추가 옵션</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html"><i class="fa fa-check"></i><b>6</b> Unpaired Two samples T-test</a>
@@ -210,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#평균-추정-값과-신뢰구간-1"><i class="fa fa-check"></i><b>6.4</b> 평균 추정 값과 신뢰구간</a></li>
 <li class="chapter" data-level="6.5" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#비모수적-방법-2"><i class="fa fa-check"></i><b>6.5</b> 비모수적 방법</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
+<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-2"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#추가-옵션-1"><i class="fa fa-check"></i><b>6.6</b> 추가 옵션</a></li>
 </ul></li>
@@ -257,17 +260,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#다변량-분산분석이란"><i class="fa fa-check"></i><b>9.2</b> 다변량 분산분석이란</a></li>
 <li class="chapter" data-level="9.3" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#manova"><i class="fa fa-check"></i><b>9.3</b> MANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="manova-test.html"><a href="manova-test.html"><i class="fa fa-check"></i><b>10</b> MANOVA test</a></li>
-<li class="chapter" data-level="11" data-path="-regression-model.html"><a href="-regression-model.html"><i class="fa fa-check"></i><b>11</b> 회귀모형(Regression Model)</a>
+<li class="chapter" data-level="10" data-path="-regression-model.html"><a href="-regression-model.html"><i class="fa fa-check"></i><b>10</b> 회귀모형(Regression Model)</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="-regression-model.html"><a href="-regression-model.html#데이터-불러오기-6"><i class="fa fa-check"></i><b>11.1</b> 데이터 불러오기</a></li>
-<li class="chapter" data-level="11.2" data-path="-regression-model.html"><a href="-regression-model.html#상관-분석"><i class="fa fa-check"></i><b>11.2</b> 상관 분석</a>
+<li class="chapter" data-level="10.1" data-path="-regression-model.html"><a href="-regression-model.html#데이터-불러오기-6"><i class="fa fa-check"></i><b>10.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="10.2" data-path="-regression-model.html"><a href="-regression-model.html#상관-분석"><i class="fa fa-check"></i><b>10.2</b> 상관 분석</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="-regression-model.html"><a href="-regression-model.html#회귀모형"><i class="fa fa-check"></i><b>11.2.1</b> 회귀모형</a></li>
-<li class="chapter" data-level="11.2.2" data-path="-regression-model.html"><a href="-regression-model.html#plot"><i class="fa fa-check"></i><b>11.2.2</b> plot</a></li>
-<li class="chapter" data-level="11.2.3" data-path="-regression-model.html"><a href="-regression-model.html#scatterplot"><i class="fa fa-check"></i><b>11.2.3</b> scatterplot</a></li>
+<li class="chapter" data-level="10.2.1" data-path="-regression-model.html"><a href="-regression-model.html#회귀모형"><i class="fa fa-check"></i><b>10.2.1</b> 회귀모형</a></li>
+<li class="chapter" data-level="10.2.2" data-path="-regression-model.html"><a href="-regression-model.html#plot"><i class="fa fa-check"></i><b>10.2.2</b> plot</a></li>
+<li class="chapter" data-level="10.2.3" data-path="-regression-model.html"><a href="-regression-model.html#scatterplot"><i class="fa fa-check"></i><b>10.2.3</b> scatterplot</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="-regression-model.html"><a href="-regression-model.html#다항회귀모형"><i class="fa fa-check"></i><b>11.3</b> 다항회귀모형</a></li>
+<li class="chapter" data-level="10.3" data-path="-regression-model.html"><a href="-regression-model.html#다항회귀모형"><i class="fa fa-check"></i><b>10.3</b> 다항회귀모형</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/greenroadmaster/easy-R/docs" target="blank">Published with bookdown</a></li>
@@ -293,12 +295,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 7</span> 일원분류 분산분석(One way ANOVA)</h1>
 <div id="데이터-불러오기-3" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> 데이터 불러오기</h2>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="-one-way-anova.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span>
-<span id="cb125-2"><a href="-one-way-anova.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="-one-way-anova.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span>
+<span id="cb1-2"><a href="-one-way-anova.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    30 obs. of  2 variables:
 ##  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
 ##  $ group : Factor w/ 3 levels &quot;ctrl&quot;,&quot;trt1&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="-one-way-anova.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(PlantGrowth<span class="sc">$</span>group)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="-one-way-anova.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(PlantGrowth<span class="sc">$</span>group)</span></code></pre></div>
 <pre><code>## [1] &quot;ctrl&quot; &quot;trt1&quot; &quot;trt2&quot;</code></pre>
 <p>R에 있는 기본 데이터셋인 PlantGrowth를 불러온다.</p>
 <p>2개의 변수와 60개의 관측치가 있다.</p>
@@ -313,11 +315,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>그리고 종속변수의 집단에 따라 분산분석이 나뉘어 진다.</p>
 <p><strong>일원분류 분산분석이란</strong>
 종속변수(한 개 집단) ~ 독립변수(3개 이상 집단) 일때, 평균을 비교하는 기법이다.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="-one-way-anova.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(weight <span class="sc">~</span> group, </span>
-<span id="cb129-2"><a href="-one-way-anova.html#cb129-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data=</span>PlantGrowth,</span>
-<span id="cb129-3"><a href="-one-way-anova.html#cb129-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">frame =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb129-4"><a href="-one-way-anova.html#cb129-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>,<span class="st">&quot;tomato&quot;</span>),</span>
-<span id="cb129-5"><a href="-one-way-anova.html#cb129-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Tooth Length&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="-one-way-anova.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(weight <span class="sc">~</span> group, </span>
+<span id="cb5-2"><a href="-one-way-anova.html#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data=</span>PlantGrowth,</span>
+<span id="cb5-3"><a href="-one-way-anova.html#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">frame =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb5-4"><a href="-one-way-anova.html#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>,<span class="st">&quot;tomato&quot;</span>),</span>
+<span id="cb5-5"><a href="-one-way-anova.html#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Tooth Length&quot;</span>)</span></code></pre></div>
 <p><img src="ANOVA-OneWay_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>boxplot으로 나타내면 위와 같이 구성되어 있다.</p>
 </div>
@@ -326,23 +328,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>분산분석을 사용하기 위해서는 독립성, 등분산성, 독립성을 만족해야 한다.</p>
 <div id="정규성" class="section level3" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> 정규성</h3>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="-one-way-anova.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="-one-way-anova.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    30 obs. of  2 variables:
 ##  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
 ##  $ group : Factor w/ 3 levels &quot;ctrl&quot;,&quot;trt1&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="-one-way-anova.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(<span class="at">data =</span> PlantGrowth,<span class="fu">shapiro.test</span>(weight[group<span class="sc">==</span><span class="st">&quot;ctrl&quot;</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="-one-way-anova.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(<span class="at">data =</span> PlantGrowth,<span class="fu">shapiro.test</span>(weight[group<span class="sc">==</span><span class="st">&quot;ctrl&quot;</span>]))</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  weight[group == &quot;ctrl&quot;]
 ## W = 0.95668, p-value = 0.7475</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="-one-way-anova.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(<span class="at">data =</span> PlantGrowth,<span class="fu">shapiro.test</span>(weight[group<span class="sc">==</span><span class="st">&quot;trt1&quot;</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="-one-way-anova.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(<span class="at">data =</span> PlantGrowth,<span class="fu">shapiro.test</span>(weight[group<span class="sc">==</span><span class="st">&quot;trt1&quot;</span>]))</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  weight[group == &quot;trt1&quot;]
 ## W = 0.93041, p-value = 0.4519</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="-one-way-anova.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(<span class="at">data =</span> PlantGrowth,<span class="fu">shapiro.test</span>(weight[group<span class="sc">==</span><span class="st">&quot;trt2&quot;</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="-one-way-anova.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(<span class="at">data =</span> PlantGrowth,<span class="fu">shapiro.test</span>(weight[group<span class="sc">==</span><span class="st">&quot;trt2&quot;</span>]))</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -354,15 +356,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="등분산성" class="section level3" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> 등분산성</h3>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="-one-way-anova.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(weight<span class="sc">~</span>group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="-one-way-anova.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(weight<span class="sc">~</span>group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
 <pre><code>## 
 ##  Bartlett test of homogeneity of variances
 ## 
 ## data:  weight by group
 ## Bartlett&#39;s K-squared = 2.8786, df = 2, p-value = 0.2371</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="-one-way-anova.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="-one-way-anova.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <pre><code>## Loading required package: carData</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="-one-way-anova.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(weight<span class="sc">~</span>group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="-one-way-anova.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(weight<span class="sc">~</span>group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  2  1.1192 0.3412
@@ -372,17 +374,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="독립성" class="section level3" number="7.3.3">
 <h3><span class="header-section-number">7.3.3</span> 독립성</h3>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="-one-way-anova.html#cb144-1" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> PlantGrowth, weight[group<span class="sc">==</span><span class="st">&quot;ctrl&quot;</span>])</span>
-<span id="cb144-2"><a href="-one-way-anova.html#cb144-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-3"><a href="-one-way-anova.html#cb144-3" aria-hidden="true" tabindex="-1"></a>trt1 <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> PlantGrowth, weight[group<span class="sc">==</span><span class="st">&quot;trt1&quot;</span>])</span>
-<span id="cb144-4"><a href="-one-way-anova.html#cb144-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-5"><a href="-one-way-anova.html#cb144-5" aria-hidden="true" tabindex="-1"></a>trt2 <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> PlantGrowth, weight[group<span class="sc">==</span><span class="st">&quot;trt2&quot;</span>])</span>
-<span id="cb144-6"><a href="-one-way-anova.html#cb144-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-7"><a href="-one-way-anova.html#cb144-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(ctrl, trt1)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="-one-way-anova.html#cb20-1" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> PlantGrowth, weight[group<span class="sc">==</span><span class="st">&quot;ctrl&quot;</span>])</span>
+<span id="cb20-2"><a href="-one-way-anova.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="-one-way-anova.html#cb20-3" aria-hidden="true" tabindex="-1"></a>trt1 <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> PlantGrowth, weight[group<span class="sc">==</span><span class="st">&quot;trt1&quot;</span>])</span>
+<span id="cb20-4"><a href="-one-way-anova.html#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="-one-way-anova.html#cb20-5" aria-hidden="true" tabindex="-1"></a>trt2 <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="at">data =</span> PlantGrowth, weight[group<span class="sc">==</span><span class="st">&quot;trt2&quot;</span>])</span>
+<span id="cb20-6"><a href="-one-way-anova.html#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="-one-way-anova.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(ctrl, trt1)</span></code></pre></div>
 <pre><code>## [1] -0.2118022</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="-one-way-anova.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(ctrl, trt2)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="-one-way-anova.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(ctrl, trt2)</span></code></pre></div>
 <pre><code>## [1] -0.1206244</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="-one-way-anova.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(trt1, trt2)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="-one-way-anova.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(trt1, trt2)</span></code></pre></div>
 <pre><code>## [1] -0.04887333</code></pre>
 <p>3개의 집단을 두 개씩 독립성 검정을 했을때, 공분산이 거의 0에 가깝다.</p>
 <p>따라서, 서로 독립적이다.</p>
@@ -392,9 +394,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.4</span> One-way ANOVA test</h2>
 <p>귀무가설 : 모든 평균들은 다 같다.</p>
 <p>대체가설 : 평균들이 모두 같지는 않다. (’평균들이 모두 다르다’가 아니다.)</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="-one-way-anova.html#cb150-1" aria-hidden="true" tabindex="-1"></a>plant.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(weight<span class="sc">~</span>group, <span class="at">data =</span> PlantGrowth)</span>
-<span id="cb150-2"><a href="-one-way-anova.html#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-3"><a href="-one-way-anova.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plant.aov)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="-one-way-anova.html#cb26-1" aria-hidden="true" tabindex="-1"></a>plant.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(weight<span class="sc">~</span>group, <span class="at">data =</span> PlantGrowth)</span>
+<span id="cb26-2"><a href="-one-way-anova.html#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="-one-way-anova.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plant.aov)</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 ## group        2  3.766  1.8832   4.846 0.0159 *
 ## Residuals   27 10.492  0.3886                 
@@ -410,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>그 내용을 다중비교를 통해 알 수 있다.(3가지 방법)</p>
 <div id="tukeyhsd" class="section level3" number="7.5.1">
 <h3><span class="header-section-number">7.5.1</span> TukeyHSD</h3>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="-one-way-anova.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(plant.aov)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="-one-way-anova.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(plant.aov)</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -433,7 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>++ glht() : 일반화된 선형 가설 검정에 쓰임</p>
 <p>++ glht(model, lincft)
 + linfct : linear, 함수가 지정되어야 함</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="-one-way-anova.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="-one-way-anova.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code></pre></div>
 <pre><code>## Loading required package: mvtnorm</code></pre>
 <pre><code>## Loading required package: survival</code></pre>
 <pre><code>## Loading required package: TH.data</code></pre>
@@ -443,7 +445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:MASS&#39;:
 ## 
 ##     geyser</code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="-one-way-anova.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glht</span>(plant.aov, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">group=</span><span class="st">&quot;Tukey&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="-one-way-anova.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glht</span>(plant.aov, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">group=</span><span class="st">&quot;Tukey&quot;</span>)))</span></code></pre></div>
 <pre><code>## 
 ##   Simultaneous Tests for General Linear Hypotheses
 ## 
@@ -455,14 +457,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Linear Hypotheses:
 ##                  Estimate Std. Error t value Pr(&gt;|t|)  
 ## trt1 - ctrl == 0  -0.3710     0.2788  -1.331   0.3909  
-## trt2 - ctrl == 0   0.4940     0.2788   1.772   0.1979  
-## trt2 - trt1 == 0   0.8650     0.2788   3.103   0.0119 *
+## trt2 - ctrl == 0   0.4940     0.2788   1.772   0.1980  
+## trt2 - trt1 == 0   0.8650     0.2788   3.103   0.0121 *
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## (Adjusted p values reported -- single-step method)</code></pre>
 <p>TukeyHSD와 같은 결과이다.</p>
 <p>mcp: group을 만드는 함수로 Tukey 함수를 쓰겠다.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="-one-way-anova.html#cb163-1" aria-hidden="true" tabindex="-1"></a>pairwise.t.test</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="-one-way-anova.html#cb39-1" aria-hidden="true" tabindex="-1"></a>pairwise.t.test</span></code></pre></div>
 <pre><code>## function (x, g, p.adjust.method = p.adjust.methods, pool.sd = !paired, 
 ##     paired = FALSE, alternative = c(&quot;two.sided&quot;, &quot;less&quot;, &quot;greater&quot;), 
 ##     ...) 
@@ -508,9 +510,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     class(ans) &lt;- &quot;pairwise.htest&quot;
 ##     ans
 ## }
-## &lt;bytecode: 0x0000000020e18a50&gt;
+## &lt;bytecode: 0x0000000020e04140&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="-one-way-anova.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(PlantGrowth<span class="sc">$</span>weight, PlantGrowth<span class="sc">$</span>group, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="-one-way-anova.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(PlantGrowth<span class="sc">$</span>weight, PlantGrowth<span class="sc">$</span>group, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pairwise comparisons using t tests with pooled SD 
 ## 
@@ -528,7 +530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.6</span> 비모수일때</h2>
 <p>만약 표본이 작거나 정규성을 따르지 않을때
 kruskal.test 함수를 사용한다.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="-one-way-anova.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="-one-way-anova.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
@@ -574,7 +576,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/greenroadmaster/easy-R/edit/master/ANOVA-OneWay.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/edit/master/ANOVA-OneWay.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -582,10 +584,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/greenroadmaster/easy-R/blob/master/ANOVA-OneWay.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/blob/master/ANOVA-OneWay.Rmd",
 "text": null
 },
-"download": ["R-Book.pdf", "R-Book.epub"],
+"download": ["easy-R.pdf", "easy-R.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -593,20 +595,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

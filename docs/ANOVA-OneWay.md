@@ -311,9 +311,9 @@ summary(glht(plant.aov, linfct = mcp(group="Tukey")))
 ## 
 ## Linear Hypotheses:
 ##                  Estimate Std. Error t value Pr(>|t|)  
-## trt1 - ctrl == 0  -0.3710     0.2788  -1.331   0.3909  
-## trt2 - ctrl == 0   0.4940     0.2788   1.772   0.1980  
-## trt2 - trt1 == 0   0.8650     0.2788   3.103   0.0122 *
+## trt1 - ctrl == 0  -0.3710     0.2788  -1.331    0.391  
+## trt2 - ctrl == 0   0.4940     0.2788   1.772    0.198  
+## trt2 - trt1 == 0   0.8650     0.2788   3.103    0.012 *
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## (Adjusted p values reported -- single-step method)
@@ -374,7 +374,7 @@ pairwise.t.test
 ##     class(ans) <- "pairwise.htest"
 ##     ans
 ## }
-## <bytecode: 0x0000000021602948>
+## <bytecode: 0x00000000225057a0>
 ## <environment: namespace:stats>
 ```
 

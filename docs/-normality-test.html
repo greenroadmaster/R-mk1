@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 정규성 검정(Normality Test) | R-Book.utf8</title>
+  <title>Chapter 1 정규성 검정(Normality Test) | easy-R.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 정규성 검정(Normality Test) | R-Book.utf8" />
+  <meta property="og:title" content="Chapter 1 정규성 검정(Normality Test) | easy-R.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 정규성 검정(Normality Test) | R-Book.utf8" />
+  <meta name="twitter:title" content="Chapter 1 정규성 검정(Normality Test) | easy-R.utf8" />
   
   
   
@@ -193,7 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#등분산성-검정"><i class="fa fa-check"></i><b>5.5</b> 등분산성 검정</a></li>
 <li class="chapter" data-level="5.6" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#t.test-1"><i class="fa fa-check"></i><b>5.6</b> t.test</a></li>
 <li class="chapter" data-level="5.7" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#평균-추정-값과-신뢰구간"><i class="fa fa-check"></i><b>5.7</b> 평균 추정 값과 신뢰구간</a></li>
-<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a></li>
+<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>5.8.1</b> wilcox.test(윌콕슨 검정)</a></li>
+</ul></li>
 <li class="chapter" data-level="5.9" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#추가-옵션"><i class="fa fa-check"></i><b>5.9</b> 추가 옵션</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html"><i class="fa fa-check"></i><b>6</b> Unpaired Two samples T-test</a>
@@ -210,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#평균-추정-값과-신뢰구간-1"><i class="fa fa-check"></i><b>6.4</b> 평균 추정 값과 신뢰구간</a></li>
 <li class="chapter" data-level="6.5" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#비모수적-방법-2"><i class="fa fa-check"></i><b>6.5</b> 비모수적 방법</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
+<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-2"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#추가-옵션-1"><i class="fa fa-check"></i><b>6.6</b> 추가 옵션</a></li>
 </ul></li>
@@ -257,17 +260,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#다변량-분산분석이란"><i class="fa fa-check"></i><b>9.2</b> 다변량 분산분석이란</a></li>
 <li class="chapter" data-level="9.3" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#manova"><i class="fa fa-check"></i><b>9.3</b> MANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="manova-test.html"><a href="manova-test.html"><i class="fa fa-check"></i><b>10</b> MANOVA test</a></li>
-<li class="chapter" data-level="11" data-path="-regression-model.html"><a href="-regression-model.html"><i class="fa fa-check"></i><b>11</b> 회귀모형(Regression Model)</a>
+<li class="chapter" data-level="10" data-path="-regression-model.html"><a href="-regression-model.html"><i class="fa fa-check"></i><b>10</b> 회귀모형(Regression Model)</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="-regression-model.html"><a href="-regression-model.html#데이터-불러오기-6"><i class="fa fa-check"></i><b>11.1</b> 데이터 불러오기</a></li>
-<li class="chapter" data-level="11.2" data-path="-regression-model.html"><a href="-regression-model.html#상관-분석"><i class="fa fa-check"></i><b>11.2</b> 상관 분석</a>
+<li class="chapter" data-level="10.1" data-path="-regression-model.html"><a href="-regression-model.html#데이터-불러오기-6"><i class="fa fa-check"></i><b>10.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="10.2" data-path="-regression-model.html"><a href="-regression-model.html#상관-분석"><i class="fa fa-check"></i><b>10.2</b> 상관 분석</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="-regression-model.html"><a href="-regression-model.html#회귀모형"><i class="fa fa-check"></i><b>11.2.1</b> 회귀모형</a></li>
-<li class="chapter" data-level="11.2.2" data-path="-regression-model.html"><a href="-regression-model.html#plot"><i class="fa fa-check"></i><b>11.2.2</b> plot</a></li>
-<li class="chapter" data-level="11.2.3" data-path="-regression-model.html"><a href="-regression-model.html#scatterplot"><i class="fa fa-check"></i><b>11.2.3</b> scatterplot</a></li>
+<li class="chapter" data-level="10.2.1" data-path="-regression-model.html"><a href="-regression-model.html#회귀모형"><i class="fa fa-check"></i><b>10.2.1</b> 회귀모형</a></li>
+<li class="chapter" data-level="10.2.2" data-path="-regression-model.html"><a href="-regression-model.html#plot"><i class="fa fa-check"></i><b>10.2.2</b> plot</a></li>
+<li class="chapter" data-level="10.2.3" data-path="-regression-model.html"><a href="-regression-model.html#scatterplot"><i class="fa fa-check"></i><b>10.2.3</b> scatterplot</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="-regression-model.html"><a href="-regression-model.html#다항회귀모형"><i class="fa fa-check"></i><b>11.3</b> 다항회귀모형</a></li>
+<li class="chapter" data-level="10.3" data-path="-regression-model.html"><a href="-regression-model.html#다항회귀모형"><i class="fa fa-check"></i><b>10.3</b> 다항회귀모형</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/greenroadmaster/easy-R/docs" target="blank">Published with bookdown</a></li>
@@ -418,7 +420,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/greenroadmaster/easy-R/edit/master/NormalityTest.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/edit/master/NormalityTest.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -426,10 +428,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/greenroadmaster/easy-R/blob/master/NormalityTest.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/blob/master/NormalityTest.Rmd",
 "text": null
 },
-"download": ["R-Book.pdf", "R-Book.epub"],
+"download": ["easy-R.pdf", "easy-R.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -437,20 +439,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

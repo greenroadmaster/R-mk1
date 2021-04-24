@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 등분산성 검정(Homogeneity of Variance Test) | R-Book.utf8</title>
+  <title>Chapter 2 등분산성 검정(Homogeneity of Variance Test) | easy-R.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 등분산성 검정(Homogeneity of Variance Test) | R-Book.utf8" />
+  <meta property="og:title" content="Chapter 2 등분산성 검정(Homogeneity of Variance Test) | easy-R.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 등분산성 검정(Homogeneity of Variance Test) | R-Book.utf8" />
+  <meta name="twitter:title" content="Chapter 2 등분산성 검정(Homogeneity of Variance Test) | easy-R.utf8" />
   
   
   
@@ -193,7 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#등분산성-검정"><i class="fa fa-check"></i><b>5.5</b> 등분산성 검정</a></li>
 <li class="chapter" data-level="5.6" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#t.test-1"><i class="fa fa-check"></i><b>5.6</b> t.test</a></li>
 <li class="chapter" data-level="5.7" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#평균-추정-값과-신뢰구간"><i class="fa fa-check"></i><b>5.7</b> 평균 추정 값과 신뢰구간</a></li>
-<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a></li>
+<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>5.8.1</b> wilcox.test(윌콕슨 검정)</a></li>
+</ul></li>
 <li class="chapter" data-level="5.9" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#추가-옵션"><i class="fa fa-check"></i><b>5.9</b> 추가 옵션</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html"><i class="fa fa-check"></i><b>6</b> Unpaired Two samples T-test</a>
@@ -210,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#평균-추정-값과-신뢰구간-1"><i class="fa fa-check"></i><b>6.4</b> 평균 추정 값과 신뢰구간</a></li>
 <li class="chapter" data-level="6.5" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#비모수적-방법-2"><i class="fa fa-check"></i><b>6.5</b> 비모수적 방법</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
+<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-2"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#추가-옵션-1"><i class="fa fa-check"></i><b>6.6</b> 추가 옵션</a></li>
 </ul></li>
@@ -257,17 +260,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#다변량-분산분석이란"><i class="fa fa-check"></i><b>9.2</b> 다변량 분산분석이란</a></li>
 <li class="chapter" data-level="9.3" data-path="-manovamulti-variate-analysis-of-variance.html"><a href="-manovamulti-variate-analysis-of-variance.html#manova"><i class="fa fa-check"></i><b>9.3</b> MANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="manova-test.html"><a href="manova-test.html"><i class="fa fa-check"></i><b>10</b> MANOVA test</a></li>
-<li class="chapter" data-level="11" data-path="-regression-model.html"><a href="-regression-model.html"><i class="fa fa-check"></i><b>11</b> 회귀모형(Regression Model)</a>
+<li class="chapter" data-level="10" data-path="-regression-model.html"><a href="-regression-model.html"><i class="fa fa-check"></i><b>10</b> 회귀모형(Regression Model)</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="-regression-model.html"><a href="-regression-model.html#데이터-불러오기-6"><i class="fa fa-check"></i><b>11.1</b> 데이터 불러오기</a></li>
-<li class="chapter" data-level="11.2" data-path="-regression-model.html"><a href="-regression-model.html#상관-분석"><i class="fa fa-check"></i><b>11.2</b> 상관 분석</a>
+<li class="chapter" data-level="10.1" data-path="-regression-model.html"><a href="-regression-model.html#데이터-불러오기-6"><i class="fa fa-check"></i><b>10.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="10.2" data-path="-regression-model.html"><a href="-regression-model.html#상관-분석"><i class="fa fa-check"></i><b>10.2</b> 상관 분석</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="-regression-model.html"><a href="-regression-model.html#회귀모형"><i class="fa fa-check"></i><b>11.2.1</b> 회귀모형</a></li>
-<li class="chapter" data-level="11.2.2" data-path="-regression-model.html"><a href="-regression-model.html#plot"><i class="fa fa-check"></i><b>11.2.2</b> plot</a></li>
-<li class="chapter" data-level="11.2.3" data-path="-regression-model.html"><a href="-regression-model.html#scatterplot"><i class="fa fa-check"></i><b>11.2.3</b> scatterplot</a></li>
+<li class="chapter" data-level="10.2.1" data-path="-regression-model.html"><a href="-regression-model.html#회귀모형"><i class="fa fa-check"></i><b>10.2.1</b> 회귀모형</a></li>
+<li class="chapter" data-level="10.2.2" data-path="-regression-model.html"><a href="-regression-model.html#plot"><i class="fa fa-check"></i><b>10.2.2</b> plot</a></li>
+<li class="chapter" data-level="10.2.3" data-path="-regression-model.html"><a href="-regression-model.html#scatterplot"><i class="fa fa-check"></i><b>10.2.3</b> scatterplot</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="-regression-model.html"><a href="-regression-model.html#다항회귀모형"><i class="fa fa-check"></i><b>11.3</b> 다항회귀모형</a></li>
+<li class="chapter" data-level="10.3" data-path="-regression-model.html"><a href="-regression-model.html#다항회귀모형"><i class="fa fa-check"></i><b>10.3</b> 다항회귀모형</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/greenroadmaster/easy-R/docs" target="blank">Published with bookdown</a></li>
@@ -293,14 +295,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> 등분산성 검정(Homogeneity of Variance Test)</h1>
 <div id="데이터-불러오기-1" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> 데이터 불러오기</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="-homogeneity-of-variance-test.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ToothGrowth)</span>
-<span id="cb17-2"><a href="-homogeneity-of-variance-test.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span>
-<span id="cb17-3"><a href="-homogeneity-of-variance-test.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ToothGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="-homogeneity-of-variance-test.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ToothGrowth)</span>
+<span id="cb1-2"><a href="-homogeneity-of-variance-test.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span>
+<span id="cb1-3"><a href="-homogeneity-of-variance-test.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ToothGrowth)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    60 obs. of  3 variables:
 ##  $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...
 ##  $ supp: Factor w/ 2 levels &quot;OJ&quot;,&quot;VC&quot;: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ...</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="-homogeneity-of-variance-test.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="-homogeneity-of-variance-test.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    30 obs. of  2 variables:
 ##  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
 ##  $ group : Factor w/ 3 levels &quot;ctrl&quot;,&quot;trt1&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
@@ -322,8 +324,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>반드시 정규성이 있어야 한다.</p>
 <p>귀무가설 H0 : 등분산성이 있다(분산의 차이가 없다).</p>
 <p>대립가설 H1 : 등분산성이 없다(분산의 차이가 있다).</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="-homogeneity-of-variance-test.html#cb21-1" aria-hidden="true" tabindex="-1"></a>res.ftest <span class="ot">&lt;-</span> <span class="fu">var.test</span>(len <span class="sc">~</span> supp, <span class="at">data =</span> ToothGrowth, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
-<span id="cb21-2"><a href="-homogeneity-of-variance-test.html#cb21-2" aria-hidden="true" tabindex="-1"></a>res.ftest</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="-homogeneity-of-variance-test.html#cb5-1" aria-hidden="true" tabindex="-1"></a>res.ftest <span class="ot">&lt;-</span> <span class="fu">var.test</span>(len <span class="sc">~</span> supp, <span class="at">data =</span> ToothGrowth, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb5-2"><a href="-homogeneity-of-variance-test.html#cb5-2" aria-hidden="true" tabindex="-1"></a>res.ftest</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -339,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>p-value 값이 유의수준(0.05)보다 큰 0.2331로 나왔다.</p>
 <p>따라서 귀무가설을 채택하여 등분산성이 있다.</p>
 <p>여기서 , alternative는 양측 검정할지 단측 검정할지를 설정해준다.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="-homogeneity-of-variance-test.html#cb23-1" aria-hidden="true" tabindex="-1"></a>res.ftest<span class="sc">$</span>estimate</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="-homogeneity-of-variance-test.html#cb7-1" aria-hidden="true" tabindex="-1"></a>res.ftest<span class="sc">$</span>estimate</span></code></pre></div>
 <pre><code>## ratio of variances 
 ##          0.6385951</code></pre>
 <p>등분산 검정 함수에는 분산이 얼마나 같은지 알려주는 estimate가 있다.
@@ -355,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>귀무가설 H0 : 등분산성이 있다(분산의 차이가 없다).</p></li>
 <li><p>대립가설 H1 : 등분산성이 없다(분산의 차이가 있다).</p></li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="-homogeneity-of-variance-test.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="-homogeneity-of-variance-test.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
 <pre><code>## 
 ##  Bartlett test of homogeneity of variances
 ## 
@@ -371,9 +373,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>정규성이 있어야 하는 전제 조건에 덜 민감하다.</p>
 <p>귀무가설 H0 : 등분산성이 있다(분산의 차이가 없다).</p>
 <p>대립가설 H1 : 등분산성이 없다(분산의 차이가 있다).</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="-homogeneity-of-variance-test.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="-homogeneity-of-variance-test.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <pre><code>## Loading required package: carData</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="-homogeneity-of-variance-test.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="-homogeneity-of-variance-test.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  2  1.1192 0.3412
@@ -387,7 +389,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>따라서 표본의 크기, 확률 분포와 상관이 없다.</p>
 <p>귀무가설 H0 : 등분산성이 있다(분산의 차이가 없다).</p>
 <p>대립가설 H1 : 등분산성이 없다(분산의 차이가 있다).</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="-homogeneity-of-variance-test.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="-homogeneity-of-variance-test.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth)</span></code></pre></div>
 <pre><code>## 
 ##  Fligner-Killeen test of homogeneity of variances
 ## 
@@ -437,7 +439,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/greenroadmaster/easy-R/edit/master/HV-Test.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/edit/master/HV-Test.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -445,10 +447,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/greenroadmaster/easy-R/blob/master/HV-Test.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/blob/master/HV-Test.Rmd",
 "text": null
 },
-"download": ["R-Book.pdf", "R-Book.epub"],
+"download": ["easy-R.pdf", "easy-R.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -456,20 +458,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

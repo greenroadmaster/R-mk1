@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance) | R-Book.utf8</title>
+  <title>Chapter 9 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance) | easy-R.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance) | R-Book.utf8" />
+  <meta property="og:title" content="Chapter 9 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance) | easy-R.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance) | R-Book.utf8" />
+  <meta name="twitter:title" content="Chapter 9 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance) | easy-R.utf8" />
   
   
   
@@ -193,7 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#등분산성-검정"><i class="fa fa-check"></i><b>5.5</b> 등분산성 검정</a></li>
 <li class="chapter" data-level="5.6" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#t.test-1"><i class="fa fa-check"></i><b>5.6</b> t.test</a></li>
 <li class="chapter" data-level="5.7" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#평균-추정-값과-신뢰구간"><i class="fa fa-check"></i><b>5.7</b> 평균 추정 값과 신뢰구간</a></li>
-<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a></li>
+<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>5.8.1</b> wilcox.test(윌콕슨 검정)</a></li>
+</ul></li>
 <li class="chapter" data-level="5.9" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#추가-옵션"><i class="fa fa-check"></i><b>5.9</b> 추가 옵션</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html"><i class="fa fa-check"></i><b>6</b> Unpaired Two samples T-test</a>
@@ -210,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#평균-추정-값과-신뢰구간-1"><i class="fa fa-check"></i><b>6.4</b> 평균 추정 값과 신뢰구간</a></li>
 <li class="chapter" data-level="6.5" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#비모수적-방법-2"><i class="fa fa-check"></i><b>6.5</b> 비모수적 방법</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
+<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-2"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#추가-옵션-1"><i class="fa fa-check"></i><b>6.6</b> 추가 옵션</a></li>
 </ul></li>
@@ -293,15 +296,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 9</span> 다변량 분산분석(MANOVA:Multi-variate Analysis Of Variance)</h1>
 <div id="데이터-불러오기-5" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> 데이터 불러오기</h2>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb200-2"><a href="-manovamulti-variate-analysis-of-variance.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb1-2"><a href="-manovamulti-variate-analysis-of-variance.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 ##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
 ##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
 ##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
 ##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
 <blockquote>
 <p>iris(붓꽃 데이터셋)
@@ -321,17 +324,17 @@ Species: 붓꽃의 종</p>
 <p>여기서 말하는 집단은 독립변수의 요인 개수이다.</p>
 <p>그리고 종속변수의 집단에 따라 분산분석이 나뉘어 진다.</p>
 <p>종속변수(다변량) ~ 독립변수(3개 이상 집단) 일때, 평균을 비교하는 기법이다.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Sepal.Length <span class="sc">~</span> Species, </span>
-<span id="cb204-2"><a href="-manovamulti-variate-analysis-of-variance.html#cb204-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data=</span>iris,</span>
-<span id="cb204-3"><a href="-manovamulti-variate-analysis-of-variance.html#cb204-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">frame =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb204-4"><a href="-manovamulti-variate-analysis-of-variance.html#cb204-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;tomato&quot;</span>),</span>
-<span id="cb204-5"><a href="-manovamulti-variate-analysis-of-variance.html#cb204-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Sepal.Length&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Sepal.Length <span class="sc">~</span> Species, </span>
+<span id="cb5-2"><a href="-manovamulti-variate-analysis-of-variance.html#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data=</span>iris,</span>
+<span id="cb5-3"><a href="-manovamulti-variate-analysis-of-variance.html#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">frame =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb5-4"><a href="-manovamulti-variate-analysis-of-variance.html#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;tomato&quot;</span>),</span>
+<span id="cb5-5"><a href="-manovamulti-variate-analysis-of-variance.html#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Sepal.Length&quot;</span>)</span></code></pre></div>
 <p><img src="ANOVA-Multi_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Petal.Length <span class="sc">~</span> Species, </span>
-<span id="cb205-2"><a href="-manovamulti-variate-analysis-of-variance.html#cb205-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data=</span>iris,</span>
-<span id="cb205-3"><a href="-manovamulti-variate-analysis-of-variance.html#cb205-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">frame =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb205-4"><a href="-manovamulti-variate-analysis-of-variance.html#cb205-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;tomato&quot;</span>),</span>
-<span id="cb205-5"><a href="-manovamulti-variate-analysis-of-variance.html#cb205-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Petal.Length&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="-manovamulti-variate-analysis-of-variance.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Petal.Length <span class="sc">~</span> Species, </span>
+<span id="cb6-2"><a href="-manovamulti-variate-analysis-of-variance.html#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data=</span>iris,</span>
+<span id="cb6-3"><a href="-manovamulti-variate-analysis-of-variance.html#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">frame =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb6-4"><a href="-manovamulti-variate-analysis-of-variance.html#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;tomato&quot;</span>),</span>
+<span id="cb6-5"><a href="-manovamulti-variate-analysis-of-variance.html#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Petal.Length&quot;</span>)</span></code></pre></div>
 <p><img src="ANOVA-Multi_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
 <p>boxplot으로 나타내면 위와 같이 구성되어 있다.</p>
 <p>종속변수에 길이에 대한 변수만 다루겠다.</p>
@@ -379,7 +382,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/greenroadmaster/easy-R/edit/master/ANOVA-Multi.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/edit/master/ANOVA-Multi.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -387,10 +390,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/greenroadmaster/easy-R/blob/master/ANOVA-Multi.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/blob/master/ANOVA-Multi.Rmd",
 "text": null
 },
-"download": ["R-Book.pdf", "R-Book.epub"],
+"download": ["easy-R.pdf", "easy-R.epub"],
 "toc": {
 "collapse": "subsection"
 }

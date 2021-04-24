@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 MANOVA test | R-Book.utf8</title>
+  <title>Chapter 10 MANOVA test | easy-R.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 MANOVA test | R-Book.utf8" />
+  <meta property="og:title" content="Chapter 10 MANOVA test | easy-R.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 MANOVA test | R-Book.utf8" />
+  <meta name="twitter:title" content="Chapter 10 MANOVA test | easy-R.utf8" />
   
   
   
@@ -193,7 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#등분산성-검정"><i class="fa fa-check"></i><b>5.5</b> 등분산성 검정</a></li>
 <li class="chapter" data-level="5.6" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#t.test-1"><i class="fa fa-check"></i><b>5.6</b> t.test</a></li>
 <li class="chapter" data-level="5.7" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#평균-추정-값과-신뢰구간"><i class="fa fa-check"></i><b>5.7</b> 평균 추정 값과 신뢰구간</a></li>
-<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a></li>
+<li class="chapter" data-level="5.8" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#비모수적-방법-1"><i class="fa fa-check"></i><b>5.8</b> 비모수적 방법</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>5.8.1</b> wilcox.test(윌콕슨 검정)</a></li>
+</ul></li>
 <li class="chapter" data-level="5.9" data-path="paired-samples-t-test.html"><a href="paired-samples-t-test.html#추가-옵션"><i class="fa fa-check"></i><b>5.9</b> 추가 옵션</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html"><i class="fa fa-check"></i><b>6</b> Unpaired Two samples T-test</a>
@@ -210,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#평균-추정-값과-신뢰구간-1"><i class="fa fa-check"></i><b>6.4</b> 평균 추정 값과 신뢰구간</a></li>
 <li class="chapter" data-level="6.5" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#비모수적-방법-2"><i class="fa fa-check"></i><b>6.5</b> 비모수적 방법</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-1"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
+<li class="chapter" data-level="6.5.1" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#wilcox.test윌콕슨-검정-2"><i class="fa fa-check"></i><b>6.5.1</b> wilcox.test(윌콕슨 검정)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="unpaired-two-samples-t-test.html"><a href="unpaired-two-samples-t-test.html#추가-옵션-1"><i class="fa fa-check"></i><b>6.6</b> 추가 옵션</a></li>
 </ul></li>
@@ -292,9 +295,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="manova-test" class="section level1" number="10">
 <h1><span class="header-section-number">Chapter 10</span> MANOVA test</h1>
 <p>sepl &lt;- iris<span class="math inline">\(Sepal.Length petl &lt;- iris\)</span>Petal.Length</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="manova-test.html#cb206-1" aria-hidden="true" tabindex="-1"></a>res.man <span class="ot">&lt;-</span> <span class="fu">manova</span>(<span class="fu">cbind</span>(Sepal.Length, Petal.Length) <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
-<span id="cb206-2"><a href="manova-test.html#cb206-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb206-3"><a href="manova-test.html#cb206-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res.man)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="manova-test.html#cb7-1" aria-hidden="true" tabindex="-1"></a>res.man <span class="ot">&lt;-</span> <span class="fu">manova</span>(<span class="fu">cbind</span>(Sepal.Length, Petal.Length) <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb7-2"><a href="manova-test.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="manova-test.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res.man)</span></code></pre></div>
 <pre><code>##            Df Pillai approx F num Df den Df    Pr(&gt;F)    
 ## Species     2 0.9885   71.829      4    294 &lt; 2.2e-16 ***
 ## Residuals 147                                            
@@ -302,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>p값이 유의수준보다 작기 때문에 통계적으로 유의하다.</p>
 <p>즉, 분꽃의 종에 따라 꽃받침 길이, 꽃잎의 길이 차가 있다.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="manova-test.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary.aov</span>(res.man)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="manova-test.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary.aov</span>(res.man)</span></code></pre></div>
 <pre><code>##  Response Sepal.Length :
 ##              Df Sum Sq Mean Sq F value    Pr(&gt;F)    
 ## Species       2 63.212  31.606  119.26 &lt; 2.2e-16 ***
@@ -356,7 +359,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/greenroadmaster/easy-R/edit/master/ANOVA-Multi.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/edit/master/ANOVA-Multi.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -364,10 +367,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/greenroadmaster/easy-R/blob/master/ANOVA-Multi.Rmd",
+"link": "https://github.com/greenroadmaster/R-mk1/blob/master/ANOVA-Multi.Rmd",
 "text": null
 },
-"download": ["R-Book.pdf", "R-Book.epub"],
+"download": ["easy-R.pdf", "easy-R.epub"],
 "toc": {
 "collapse": "subsection"
 }
